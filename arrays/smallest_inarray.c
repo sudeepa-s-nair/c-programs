@@ -1,24 +1,23 @@
 #include <stdio.h>
 
 int main() {
-    // Write C code here
+   // Write C code here
     int arr[5];
-    int i,largest;
+    int i,smallest;
    
     printf("Enter the 5 elements:\n");
     for(i=0;i<5;i++)
     {
          scanf("%d",&arr[i]);
     }
-     largest=arr[0];
+     smallest=arr[0];
     printf("\n The array elements are :\n");
     for(i=0;i<5;i++)
     {
          printf("%d",arr[i]);
          printf("\t");
-         if (arr[i]>largest)
-            largest=arr[i];
+         if (arr[i]<smallest)
+            smallest=arr[i];
     }
-    printf("\nLargest number in array:%d \n",largest);
-    return 0;
+    printf("\nSmallest number in array=%d\n",smallest);
 }
