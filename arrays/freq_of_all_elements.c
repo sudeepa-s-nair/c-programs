@@ -1,30 +1,36 @@
 #include <stdio.h>
-
 int main() {
-    // Write C code here
+
+    // initialise array
     int arr[6]={2,2,3,4,4,5};
-   int count,freq[6];
+    //to store frequency of elements in array
+   int count,visited,freq[6];
+   visited=-1;
     printf("\nThe array elements :\n");
     for(int i=0;i<6;i++)
     {
         printf("%d\t",arr[i]);
     }
+   
      for(int i=0;i<6;i++)
      {
-       count=0;
-         for(int j=i;j<6;j++)
+          count=1;
+         for(int j=i+1;j<6;j++)
          {
              if(arr[i]==arr[j])
+             {
              count++;
+             //to avoid counting same element again
+             freq[j]=visited;
+             }
          }
+       if(freq[i]!=visited)
         freq[i]=count;
      }
      for(int i=0;i<6;i++)
     {
-        if(freq[i]>1)
-       printf("\n %d occured %d times",arr[i],freq[i]);
-       
-    }
-    printf("\nOther elements only occured once");   
+        if(freq[i]!=visited)
+       printf("\n%d occured %d times",arr[i],freq[i]);
+    }  
     return 0;
 }
